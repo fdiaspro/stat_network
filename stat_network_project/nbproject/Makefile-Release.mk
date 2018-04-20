@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Log/logger_base.o \
+	${OBJECTDIR}/Sniffer/sniffer_tcp.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,6 +63,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stat_network_project: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stat_network_project ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Log/logger_base.o: Log/logger_base.cpp
+	${MKDIR} -p ${OBJECTDIR}/Log
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Log/logger_base.o Log/logger_base.cpp
+
+${OBJECTDIR}/Sniffer/sniffer_tcp.o: Sniffer/sniffer_tcp.cpp
+	${MKDIR} -p ${OBJECTDIR}/Sniffer
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sniffer/sniffer_tcp.o Sniffer/sniffer_tcp.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

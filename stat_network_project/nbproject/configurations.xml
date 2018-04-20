@@ -4,6 +4,23 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Container" projectFiles="true">
+        <itemPath>Container/container.h</itemPath>
+        <itemPath>Container/record_base.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Exception" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Loader" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Log" projectFiles="true">
+        <itemPath>Log/logger_base.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="Sniffer" projectFiles="true">
+        <itemPath>Sniffer/sniffer_tcp.h</itemPath>
+        <itemPath>Sniffer/virtual_sniffer.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="Statistic" projectFiles="true">
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +29,20 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f5" displayName="Container" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Exception" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="Loader" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Log" projectFiles="true">
+        <itemPath>Log/logger_base.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Sniffer" projectFiles="true">
+        <itemPath>Sniffer/sniffer_tcp.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Statistic" projectFiles="true">
+      </logicalFolder>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -37,8 +68,25 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </ccTool>
       </compileType>
+      <item path="Container/container.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Container/record_base.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Log/logger_base.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Log/logger_base.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sniffer/sniffer_tcp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sniffer/sniffer_tcp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sniffer/virtual_sniffer.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -63,6 +111,20 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Container/container.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Container/record_base.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Log/logger_base.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Log/logger_base.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sniffer/sniffer_tcp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sniffer/sniffer_tcp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sniffer/virtual_sniffer.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
