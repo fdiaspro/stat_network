@@ -24,8 +24,9 @@ public:
     virtual void add( unsigned long k, record_base value)=0;
     virtual void deleteRecord( unsigned long k)=0;
     virtual void deleteRecord( record_base k)=0;
-    virtual T& getRecord( unsigned long k)=0;     
-    virtual T& getRecord( record_base k)=0;     
+    virtual record_base& getRecord( unsigned long k)=0;     
+    virtual record_base& getRecord( record_base k)=0;
+    virtual void clean (time_t)=0; 
 };
 
 #endif /* CONTAINER_H */

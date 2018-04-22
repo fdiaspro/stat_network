@@ -30,13 +30,20 @@ struct record_base{
     virtual unsigned long getKey()=0;    
 };
 
-struct record_TCP_IP: record_base {
+enum control_bit { SYN=0, CWR, ECE, URG, ACH, PSH, RST, FIN, SIZE_ENUM };
+
+struct record_TCP_IP : record_base {
     unsigned long   IP_src;
+    unsigned int    port_src;
     unsigned long   IP_dest;
+    unsigned int    port_dest;
     struct timeval  ts;
+    time_t          timestamp;
     unsigned long   ack;
     unsigned long   seq;
     unsigned char   size;
+    enum control_bit c_bit;
+    
     virtual unsigned long getKey() {return IP_src;};
 }
 

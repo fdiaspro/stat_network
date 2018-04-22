@@ -9,6 +9,7 @@
         <itemPath>Container/record_base.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Exception" projectFiles="true">
+        <itemPath>Exception/exc_base.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Loader" projectFiles="true">
       </logicalFolder>
@@ -77,6 +78,8 @@
       </item>
       <item path="Container/record_base.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Exception/exc_base.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Log/logger_base.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Log/logger_base.h" ex="false" tool="3" flavor2="0">
@@ -114,6 +117,8 @@
       <item path="Container/container.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Container/record_base.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Exception/exc_base.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Log/logger_base.cpp" ex="false" tool="1" flavor2="0">
       </item>
