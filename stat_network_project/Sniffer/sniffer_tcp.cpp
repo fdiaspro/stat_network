@@ -23,3 +23,15 @@ sniffer_tcp::~sniffer_tcp()   {
     this->~virtual_sniffer();
 }
 
+void sniffer_tcp::openCard(std::string card)
+{
+}
+void sniffer_tcp::setFilter(std::string sFilter)
+{
+}
+void sniffer_tcp::startSniffing(container&)
+{
+}
+container& sniffer_tcp::getContainer(container&){
+    
+}

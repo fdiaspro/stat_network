@@ -13,21 +13,25 @@
 
 #ifndef CONTAINER_H
 #define CONTAINER_H
-
+#include <memory>
 #include "record_base.h"
 
- class container  {
+ class container     {
 
 public:
+    
     virtual ~container()=0;
-    virtual void add(record_base R)=0;
-    virtual void add( unsigned long k, record_base value)=0;
+    virtual void addRecord(record_base R)=0;
+    virtual void addRecord( unsigned long k, record_base value)=0;
     virtual void deleteRecord( unsigned long k)=0;
     virtual void deleteRecord( record_base k)=0;
     virtual record_base& getRecord( unsigned long k)=0;     
     virtual record_base& getRecord( record_base k)=0;
-    virtual void clean (time_t)=0; 
+    virtual void clean ()=0;//delete all records
+    virtual bool empty()=0;
+    virtual unsigned long size()=0;
 };
+
 
 #endif /* CONTAINER_H */
 

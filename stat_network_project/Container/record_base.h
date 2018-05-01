@@ -26,8 +26,14 @@ extern "C" {
 }
 #endif
 
-struct record_base{
+
+struct record_virtual{
     virtual unsigned long getKey()=0;    
+};
+
+struct record_base : record_virtual {
+    unsigned long key;
+    virtual unsigned long getKey(){return key;};    
 };
 
 enum control_bit { SYN=0, CWR, ECE, URG, ACH, PSH, RST, FIN, SIZE_ENUM };
@@ -45,7 +51,7 @@ struct record_TCP_IP : record_base {
     enum control_bit c_bit;
     
     virtual unsigned long getKey() {return IP_src;};
-}
+};
 
 
 #endif /* RECORD_BASE_H */

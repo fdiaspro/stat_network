@@ -16,8 +16,8 @@
 #include <string>
 #include <memory>
 
+#include "Container/container.h"
 
-class container;
 
  class virtual_sniffer {
 public:
@@ -25,7 +25,7 @@ public:
     virtual void openCard(std::string card)=0;
     virtual void setFilter(std::string sFilter)=0;
     virtual void startSniffing(container&)=0;
-
+    virtual container& getContainer(container&)=0;
 };
 
 #endif /* VIRTUAL_SNIFFER_H */

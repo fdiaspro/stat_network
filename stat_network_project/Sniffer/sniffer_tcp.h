@@ -13,16 +13,23 @@
 
 #ifndef SNIFFER_TCP_H
 #define SNIFFER_TCP_H
+#include <memory>
 #include "virtual_sniffer.h"
+#include "Log/logger_base.h"
 
 class sniffer_tcp : virtual_sniffer {
 public:
     sniffer_tcp();
+    sniffer_tcp(std::shared_ptr <logger_base<std::string> > logger):my_logger(logger){};
     sniffer_tcp(const sniffer_tcp& orig);
     virtual ~sniffer_tcp();
-    
+    virtual void set_logger(std::shared_ptr <logger_base<std::string> > logger){my_logger=(logger);};
+     virtual void openCard(std::string card);
+    virtual void setFilter(std::string sFilter);
+    virtual void startSniffing(container&);
+    virtual container& getContainer(container&);
 private:
-
+    std::shared_ptr<logger_base<std::string> > my_logger;
 };
 
 #endif /* SNIFFER_TCP_H */
