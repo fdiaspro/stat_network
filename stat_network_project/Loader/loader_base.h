@@ -24,9 +24,9 @@ public:
 //    loader_base();
 //    loader_base(const loader_base& orig);
     virtual ~loader_base();
-    virtual void config(Config_Parameter& conf);
+    virtual void config(Config_Parameter& conf)=0;
     virtual void init()=0;
-    virtual int load(Record_Data & obj);
+    virtual int load(Record_Data & obj)=0;
     virtual void open()=0;
     virtual void close()=0;
     
