@@ -9,13 +9,17 @@
         <group>
             <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Log/logger_base.cpp</file>
             <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Sniffer/sniffer_tcp.cpp</file>
-            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Container/container.h</file>
-            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Sniffer/virtual_sniffer.h</file>
             <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Log/logger_base.h</file>
-            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/main.cpp</file>
-            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Container/record_base.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Statistic/statistic.cpp</file>
             <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Sniffer/sniffer_tcp.h</file>
             <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Exception/exc_base.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Statistic/statistic.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Container/container.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Loader/loader_base.cpp</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Sniffer/virtual_sniffer.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/main.cpp</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Container/record_base.h</file>
+            <file>file:/C:/Users/Franco/Documents/NetBeansProjects/stat_network_project/stat_network_project/Loader/loader_base.h</file>
         </group>
     </open-files>
 </project-private>
