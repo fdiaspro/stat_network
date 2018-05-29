@@ -18,7 +18,13 @@
 #include "Log/logger_base.h"
 
 class sniffer_tcp : virtual_sniffer {
-public:
+    private:
+        pcap_t *handle;		/* Session handle */
+	logger_file* appLog;
+        bpf_u_int32 mask;		/* The netmask of our sniffing device */
+	bpf_u_int32 net;		/* The IP of our sniffing device */
+        
+    public:
     sniffer_tcp();
     sniffer_tcp(std::shared_ptr <logger_base<std::string> > logger):my_logger(logger){};
     sniffer_tcp(const sniffer_tcp& orig);

@@ -16,6 +16,17 @@
 #include <fstream>
 
  template<class T> class logger_base {
+    static logger_base* instance;
+
+protected:
+    logger_base(){LOG_LEVEL=0;};
+    logger_base(unsigned int _LOG_LEVEL){LOG_LEVEL=_LOG_LEVEL;};
+    
+    static unsigned char LOG_LEVEL;
+    virtual logger_base* getLogger(){ return instance;};
+    virtual logger_base* setLogger(logger_base* _instance){ instance=_instance;};
+    
+        
 public:
     virtual void logger_debug( T)=0;
     virtual void logger_verbose( T)=0;
@@ -23,27 +34,24 @@ public:
     virtual void logger_warning( T)=0;
     virtual void logger_error(unsigned int codeErr,T)=0;
     virtual void logger_fatal_error(unsigned int codeErr,T)=0;
-    
-    logger_base(){LOG_LEVEL=0;};
-    logger_base(unsigned int _LOG_LEVEL){LOG_LEVEL=_LOG_LEVEL;};
     virtual ~logger_base(){}; 
-    static unsigned char LOG_LEVEL;
-
+    virtual int getLogLevel(){return LOG_LEVEL;};
 };
 
  class logger_file  : std::ofstream, logger_base<std::string>   {
-public:
-    virtual void logger_debug(  std::string);
-    virtual void logger_verbose(std::string);
-    virtual void logger_info( std::string);
-    virtual void logger_warning( std::string);
-    virtual void logger_error( std::string);
-    virtual void logger_fatal_error( std::string);
+    logger_file(unsigned int _LOG_LEVEL=0);
+    logger_file( std::string& orig, unsigned int _LOG_LEVEL=0);
     
-    logger_file();
-    logger_file(unsigned int logLevel);
-    logger_file(const logger_file& orig);
-    virtual ~logger_file(); 
+ public:
+    virtual void logger_debug(  std::string){};
+    virtual void logger_verbose(std::string){};
+    virtual void logger_info( std::string){};
+    virtual void logger_warning( std::string){};
+    virtual void logger_error(unsigned int codeErr, std::string){};
+    virtual void logger_fatal_error(unsigned int codeErr, std::string){};
+    virtual logger_base<std::string>  * getLogger(unsigned int _LOG_LEVEL=0);
+    
+    virtual ~logger_file(){}; 
     
 private:
 

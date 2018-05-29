@@ -15,46 +15,50 @@
 #include "Sniffer/sniffer_tcp.h"
 
 sniffer_tcp::sniffer_tcp() {
+
 }
 
 sniffer_tcp::sniffer_tcp(const sniffer_tcp& orig) {
+
 }
 
 sniffer_tcp::~sniffer_tcp()   {
     this->~virtual_sniffer();
 }
 
-void sniffer_tcp::openCard(std::string card)
+void sniffer_tcp::openCard(std::string card/* Device to sniff on */)
 {
-     pcap_t *handle;		/* Session handle */
-	 char dev[] = "rl0";		/* Device to sniff on */
-	 char errbuf[PCAP_ERRBUF_SIZE];	/* Error string */
-	 struct bpf_program fp;		/* The compiled filter expression */
-	 char filter_exp[] = "port 23";	/* The filter expression */
-	 bpf_u_int32 mask;		/* The netmask of our sniffing device */
-	 bpf_u_int32 net;		/* The IP of our sniffing device */
-
-	 if (pcap_lookupnet(dev, &net, &mask, errbuf) == -1) {
-		 fprintf(stderr, "Can't get netmask for device %s\n", dev);
+         char errbuf[1000];
+	 if (pcap_lookupnet( card.c_str(), &net, &mask, errbuf) == -1) {
+		 std::string err("");
+                 err= "Can't get netmask for device " + card;
 		 net = 0;
 		 mask = 0;
 	 }
-	 handle = pcap_open_live(dev, BUFSIZ, 1, 1000, errbuf);
+	 handle = pcap_open_live(card.c_str(), sizeof(errbuf), 1, 1000, errbuf);
 	 if (handle == NULL) {
-		 fprintf(stderr, "Couldn't open device %s: %s\n", dev, errbuf);
+		 std::string err("");
+                 err= "Couldn't open device %s: %s\n" + card+ std::string(errbuf);
 		 return;
 	 }
-	 if (pcap_compile(handle, &fp, filter_exp, 0, net) == -1) {
-		 fprintf(stderr, "Couldn't parse filter %s: %s\n", filter_exp, pcap_geterr(handle));
-		 return;
-	 }
-	 if (pcap_setfilter(handle, &fp) == -1) {
-		 fprintf(stderr, "Couldn't install filter %s: %s\n", filter_exp, pcap_geterr(handle));
-		 return;
-	 }
+	 
 }
-void sniffer_tcp::setFilter(std::string sFilter)
+void sniffer_tcp::setFilter(std::string sFilter /* The filter expression */)
 {
+    struct bpf_program fp;		/* The compiled filter expression */
+     ;	
+	
+    if (pcap_compile(handle, &fp, sFilter.c_str(), 0, net) == -1) {
+		std::string err("");
+                err= "Couldn't parse filter %s: %s\n" + sFilter +  std::string(pcap_geterr(handle));
+		return;
+    }
+    
+     if (pcap_setfilter(handle, &fp) == -1) {
+		std::string err("");
+                err= "Couldn't install filter %s: %s\n" + sFilter +  std::string(pcap_geterr(handle));
+		return;
+    }
 }
 void sniffer_tcp::startSniffing(container&)
 {

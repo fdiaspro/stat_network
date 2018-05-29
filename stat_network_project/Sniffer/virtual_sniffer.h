@@ -16,10 +16,14 @@
 #include <string>
 #include <memory>
 
+#include "Log/logger_base.h"
 #include "Container/container.h"
 
 
  class virtual_sniffer {
+ protected:
+    logger_base<std::string>* appLogger;
+     
 public:
     virtual ~virtual_sniffer(){};
     virtual void openCard(std::string card)=0;
