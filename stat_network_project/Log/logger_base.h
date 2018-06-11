@@ -23,6 +23,10 @@ protected:
     logger_base(unsigned int _LOG_LEVEL){LOG_LEVEL=_LOG_LEVEL;};
     
     static unsigned char LOG_LEVEL;
+    static const unsigned char LOG_VERBOSE;
+    static const unsigned char LOG_DEBUG;
+    static const unsigned char LOG_INFO;
+    static const unsigned char LOG_WARNING;
     virtual logger_base* getLogger(){ return instance;};
     virtual logger_base* setLogger(logger_base* _instance){ instance=_instance;};
     
@@ -43,18 +47,18 @@ public:
     logger_file( std::string& orig, unsigned int _LOG_LEVEL=0);
     
  public:
-    virtual void logger_debug(  std::string){};
-    virtual void logger_verbose(std::string){};
-    virtual void logger_info( std::string){};
-    virtual void logger_warning( std::string){};
-    virtual void logger_error(unsigned int codeErr, std::string){};
-    virtual void logger_fatal_error(unsigned int codeErr, std::string){};
+    virtual void logger_debug(  std::string);
+    virtual void logger_verbose(std::string);
+    virtual void logger_info( std::string);
+    virtual void logger_warning( std::string);
+    virtual void logger_error(unsigned int codeErr, std::string);
+    virtual void logger_fatal_error(unsigned int codeErr, std::string);
     virtual logger_base<std::string>  * getLogger(unsigned int _LOG_LEVEL=0);
     
     virtual ~logger_file(){}; 
     
 private:
-
+    std::string timing() ;
 };
 
 #endif /* LOGGER_BASE_H */

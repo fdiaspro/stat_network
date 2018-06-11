@@ -10,20 +10,25 @@
  *
  * Created on 22 aprile 2018, 12.43
  */
+#include <exception>
 
 #ifndef EXC_BASE_H
 #define EXC_BASE_H
 
-#include <exception>
+class A{};
 
-class card_network_exception : std::exception {
-
-    card_network_exception() : msg("") {};
-    card_network_exception(std::string _msg) : msg(_msg) {};
-    virtual const char* what() {return "cannot open card: " + msg; };
+class card_network_exception  : public std::exception {
+    
+    public:
+        card_network_exception() : msg(""), errCode(0x100) {};
+        card_network_exception(std::string _msg) : msg(_msg), errCode(0x100)  {};
+        virtual const char* what() {return   msg.c_str(); };
+        virtual unsigned int getErrocCode() {return  errCode; };
+    
     protected:
         std::string msg;
-}
+        unsigned short  int errCode;
+};
 
 #endif /* EXC_BASE_H */
 

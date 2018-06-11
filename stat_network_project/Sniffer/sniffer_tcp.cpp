@@ -13,6 +13,7 @@
 #include <pcap.h>
 
 #include "Sniffer/sniffer_tcp.h"
+#include "Exception/exc_base.h"
 
 sniffer_tcp::sniffer_tcp() {
 
@@ -34,6 +35,10 @@ void sniffer_tcp::openCard(std::string card/* Device to sniff on */)
                  err= "Can't get netmask for device " + card;
 		 net = 0;
 		 mask = 0;
+                 card_network_exception my_err(err);
+                 
+                 my_logger->logger_error(my_err.getErrocCode(), my_err.what() );
+                 throw (err);
 	 }
 	 handle = pcap_open_live(card.c_str(), sizeof(errbuf), 1, 1000, errbuf);
 	 if (handle == NULL) {
