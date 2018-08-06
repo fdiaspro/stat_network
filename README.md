@@ -11,5 +11,5 @@ specific: TCP/IP traffic, we will give
   3) Main destination by card
   4) Number of restart session
 
-On the first release data will be on file (30 Sept 2018)
+On the first release, data will be saved on file (30 Sept 2018)
 ____
