@@ -4,7 +4,7 @@ c++ program to compute statistic on traffic network
 ide netbeans with c++ plugins
 
 
-specific: TCP/IP traffic, we will give
+requiements: TCP/IP traffic, we will produce
 
   1) Number of Packets by card
   2) Volume of Packets by card
